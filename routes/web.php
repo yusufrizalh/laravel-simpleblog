@@ -19,3 +19,8 @@ Route::view('employees/edit', 'employees/edit');
 Route::view('employees/delete', 'employees/delete');
 
 // Mengakses file views dari sub-folder: series
+Route::view('series/index', 'series/index');
+Route::view('series/create', 'series/create');
+Route::view('series/show', 'series/show');
+Route::view('series/edit', 'series/edit');
+Route::view('series/delete', 'series/delete');
