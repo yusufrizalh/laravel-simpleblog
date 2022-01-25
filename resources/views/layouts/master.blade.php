@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact Page</title>
+    <title>Master Page</title>
+    <style>
+        body {
+            background-color: wheat;
+        }
+    </style>
 </head>
 
 <body>
-    @extends('layouts/master')
-    @section('content')
-        <h1>Contact page from views > contact.blade.php</h1>
-    @endsection
+    @include('layouts/navigation')
+    @yield('content')
 </body>
 
 </html>

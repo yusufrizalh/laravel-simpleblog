@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>Gallery page from views > gallery.blade.php</h1>
+    @extends('layouts/master')
+    @section('content')
+        <h1>Gallery page from views > gallery.blade.php</h1>
+    @endsection
 </body>
 
 </html>

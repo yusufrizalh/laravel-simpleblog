@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>Welcome page from views > welcome.blade.php</h1>
+    @extends('layouts/master')
+    @section('content')
+        <h1>Welcome page from views > welcome.blade.php</h1>
+    @endsection
 </body>
 
 </html>
