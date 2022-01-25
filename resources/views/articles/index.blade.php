@@ -11,10 +11,11 @@
     @extends('layouts/master')
     @section('content')
         <div class="container">
+            <h3>All Articles</h3>
+            <hr>
             <div class="row">
-                <div class="col-md-6">
-                    <h3>All Articles</h3>
-                    @foreach ($articles as $article)
+                @foreach ($articles as $article)
+                    <div class="col-md-4">
                         <div class="card mb-3">
                             <div class="card-header">
                                 {{ $article->title }}
@@ -27,9 +28,11 @@
                                 Published on {{ $article->created_at->diffForHumans() }}
                             </div>
                         </div>
-                    @endforeach
-                    {{ $articles->links() }}
-                </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                <div> {{ $articles->links() }}</div>
             </div>
         </div>
     @endsection
