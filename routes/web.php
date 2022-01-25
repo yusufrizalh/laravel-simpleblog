@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Membuat setiap route yang ada didalam aplikasi
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
+Route::get('/', 'HomeController@index');
 Route::view('/contact', 'contact');
 Route::view('/gallery', 'gallery');
 
@@ -24,3 +25,8 @@ Route::view('series/create', 'series/create');
 Route::view('series/show', 'series/show');
 Route::view('series/edit', 'series/edit');
 Route::view('series/delete', 'series/delete');
+
+// Route::get('/', function() {
+//     $myName = request('name');
+//     return view('home', ['name' => $myName]);
+// });
