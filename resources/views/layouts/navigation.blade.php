@@ -11,6 +11,9 @@
                 <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Welcome</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ request()->is('articles') ? 'active' : '' }}" href="/articles">Articles</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="/contact">Contact</a>
             </li>
             <li class="nav-item">

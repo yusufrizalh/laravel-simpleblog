@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 // Membuat setiap route yang ada didalam aplikasi
 // Route::view('/', 'welcome');
 Route::get('/', 'HomeController@index');
+Route::get('/articles/{slug}', 'ArticleController@show');   // Route Wildcard
 Route::view('/contact', 'contact');
 Route::view('/gallery', 'gallery');
 
