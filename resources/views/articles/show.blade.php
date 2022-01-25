@@ -9,10 +9,10 @@
 
 <body>
     @extends('layouts/master')
-    @section('title', 'Show Articles Page')
+    @section('title', $article->title)
     @section('content')
-        <h1>Show Articles page from views > articles > show.blade.php</h1>
-        <p>{{ $slug }}</p>
+        <h3>{{ $article->title }}</h3>
+        <p>{{ $article->body }}</p>
     @endsection
 </body>
 
