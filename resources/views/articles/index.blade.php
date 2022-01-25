@@ -23,6 +23,9 @@
                                 <div>{{ Str::limit($article->body, 100, '...') }}</div>
                                 <a href="/articles/{{ $article->slug }}">Read more</a>
                             </div>
+                            <div class="card-footer">
+                                Published on {{ $article->created_at->diffForHumans() }}
+                            </div>
                         </div>
                     @endforeach
                     {{ $articles->links() }}
