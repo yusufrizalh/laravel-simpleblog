@@ -11,8 +11,15 @@
     @extends('layouts/master')
     @section('content')
         <div class="container">
-            <h3>All Articles</h3>
-            <hr>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h3>All Articles</h3>
+                    <hr>
+                </div>
+                <div>
+                    <a href="/articles/create" class="btn btn-primary">New Article</a>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($articles as $article)
                     <div class="col-md-4">
