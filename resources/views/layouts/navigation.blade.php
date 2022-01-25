@@ -7,17 +7,17 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Welcome</a>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Welcome</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="/contact">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/gallery">Gallery</a>
+                <a class="nav-link {{ request()->is('gallery') ? 'active' : '' }}" href="/gallery">Gallery</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="/login">Login</a>
             </li>
         </ul>
     </div>
