@@ -21,6 +21,8 @@
     <div class="container py-4">
         @yield('content')
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -79,6 +79,8 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        session()->flash('success', 'Article is deleted successfully');
+        return redirect('articles');
     }
 }

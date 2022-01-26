@@ -13,6 +13,40 @@
     @section('content')
         <h3>{{ $article->title }}</h3>
         <p>{{ $article->body }}</p>
+
+        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
+            Delete Article
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Are you sure want to delete this article?
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/articles/{{ $article->slug }}/delete" method="post">
+                            @method('delete')
+                            @csrf
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-sm btn-danger mr-3">
+                                    Yes
+                                </button>
+                                <button type="button" class="btn bt-secondary btn-sm" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">Copyright @Inixindo | 2022</div>
+                </div>
+            </div>
+        </div>
     @endsection
 </body>
 
