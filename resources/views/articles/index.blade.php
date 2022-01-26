@@ -9,6 +9,7 @@
 
 <body>
     @extends('layouts/master')
+    @section('title', 'Show All Articles')
     @section('content')
         <div class="container">
             <div class="d-flex justify-content-between">
@@ -21,7 +22,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($articles as $article)
+                @forelse ($articles as $article)
                     <div class="col-md-4">
                         <div class="card mb-3">
                             <div class="card-header">
@@ -36,7 +37,13 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-md-6">
+                        <div class="alert alert-warning">
+                            There's no articles
+                        </div>
+                    </div>
+                @endforelse
             </div>
             <div class="d-flex justify-content-center">
                 <div> {{ $articles->links() }}</div>

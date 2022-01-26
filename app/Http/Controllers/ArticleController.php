@@ -11,18 +11,24 @@ class ArticleController extends Controller
     {
         // $articles = Article::get();  // mengambil semua data
         // $articles = Article::take(3)->get();    // mengambil data dengan jumlah tertentu
-        $articles = Article::paginate(3);   // satu halaman berisi 3 data
-        return view('articles/index', ['articles' => $articles]);
+        return view('articles/index', [
+            'articles' => Article::latest()->paginate(3),
+        ]); // data yg dibuat paling baru muncul paling depan
     }
 
     public function create()
     {
-        //
+        return view('articles/create'); // membuka form create new article
     }
 
     public function store(Request $request)
     {
-        //
+        $article = new Article; // model Article
+        $article->title = $request->title;
+        $article->slug = \Str::slug($request->title);
+        $article->body = $request->body;
+        $article->save();
+        return redirect()->to('/articles');
     }
 
     public function show(Article $article)
