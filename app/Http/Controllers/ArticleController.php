@@ -52,7 +52,8 @@ class ArticleController extends Controller
         ]);
         $attributes['slug'] = \Str::slug(request('title'));
         Article::create($attributes);
-        return redirect()->to('/articles');
+        session()->flash('success', 'New article is created successfully');
+        return back();
     }
 
     public function show(Article $article)
