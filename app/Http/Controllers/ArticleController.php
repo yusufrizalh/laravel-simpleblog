@@ -23,12 +23,19 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        $article = new Article; // model Article
-        $article->title = $request->title;
-        $article->slug = \Str::slug($request->title);
-        $article->body = $request->body;
-        $article->save();
-        return redirect()->to('/articles');
+        // $article = new Article; // memanggil model Article
+        // $article->title = $request->title;
+        // $article->slug = \Str::slug($request->title);
+        // $article->body = $request->body;
+        // $article->save();
+        // return redirect()->to('/articles');
+
+        Article::create([
+            'title' => $request->title,
+            'slug' => \Str::slug($request->title),
+            'body' => $request->body,
+        ]);
+        return back();
     }
 
     public function show(Article $article)

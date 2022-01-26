@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    @extends('layouts/master', ['title' => 'Create New Article'])
-
+    @extends('layouts/master')
+    @section('title', 'Create New Article')
     @section('content')
         <div class="container">
             <div class="row">
