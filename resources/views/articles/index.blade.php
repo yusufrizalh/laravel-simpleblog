@@ -32,8 +32,9 @@
                                 <div>{{ Str::limit($article->body, 100, '...') }}</div>
                                 <a href="/articles/{{ $article->slug }}">Read more</a>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer d-flex justify-content-between">
                                 Published on {{ $article->created_at->diffForHumans() }}
+                                <a href="/articles/{{ $article->slug }}/edit" class="btn btn-sm btn-success">Edit</a>
                             </div>
                         </div>
                     </div>

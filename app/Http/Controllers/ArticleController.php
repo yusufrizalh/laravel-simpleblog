@@ -63,12 +63,18 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        //
+        return view('articles/edit', compact('article'));   // membuka form edit article
     }
 
-    public function update(Request $request, Article $article)
+    public function update(Article $article)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required|min:8|max:50',
+            'body' => 'required',
+        ]);
+        $article->update($attributes);
+        session()->flash('success', 'Article is updated successfully');
+        return back();
     }
 
     public function destroy(Article $article)

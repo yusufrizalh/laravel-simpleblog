@@ -14,6 +14,8 @@ Route::get('/', 'HomeController@index');
 Route::get('/articles', 'ArticleController@index');
 Route::get('/articles/create', 'ArticleController@create'); // membuka form create
 Route::post('/articles/store', 'ArticleController@store');   // proses menyimpan
+Route::get('/articles/{article:slug}/edit', 'ArticleController@edit');  // membuka form edit
+Route::patch('/articles/{article:slug}/edit', 'ArticleController@update'); // proses mengubah
 Route::get('/articles/{article:slug}', 'ArticleController@show');   // Route Wildcard
 
 Route::view('/contact', 'contact');
