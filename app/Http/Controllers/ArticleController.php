@@ -21,7 +21,7 @@ class ArticleController extends Controller
         return view('articles/create'); // membuka form create new article
     }
 
-    public function store(Request $request)
+    public function store()
     {
         // $article = new Article; // memanggil model Article
         // $article->title = $request->title;
@@ -30,12 +30,29 @@ class ArticleController extends Controller
         // $article->save();
         // return redirect()->to('/articles');
 
-        Article::create([
-            'title' => $request->title,
-            'slug' => \Str::slug($request->title),
-            'body' => $request->body,
+        // Article::create([
+        //     'title' => $request->title,
+        //     'slug' => \Str::slug($request->title),
+        //     'body' => $request->body,
+        // ]);
+        // return back();
+
+        // $this->validate($request, [
+        //     'title' => 'required|min:8|max:50',
+        //     'body' => 'required',
+        // ]);
+        // $article = $request->all();
+        // $article['slug'] = \Str::slug($request->title);
+        // Article::create($article);
+        // return back();
+
+        $attributes = request()->validate([
+            'title' => 'required|min:8|max:50',
+            'body' => 'required',
         ]);
-        return back();
+        $attributes['slug'] = \Str::slug(request('title'));
+        Article::create($attributes);
+        return redirect()->to('/articles');
     }
 
     public function show(Article $article)
