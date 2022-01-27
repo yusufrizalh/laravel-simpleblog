@@ -17,6 +17,7 @@ Route::post('/articles/store', 'ArticleController@store');   // proses menyimpan
 Route::get('/articles/{article:slug}/edit', 'ArticleController@edit');  // membuka form edit
 Route::patch('/articles/{article:slug}/edit', 'ArticleController@update'); // proses mengubah
 Route::delete('/articles/{article:slug}/delete', 'ArticleController@destroy');  // proses menghapus
+Route::get('/categories/{category:slug}', 'CategoryController@show');   // memfilter category
 Route::get('/articles/{article:slug}', 'ArticleController@show');   // Route Wildcard
 
 Route::view('/contact', 'contact');

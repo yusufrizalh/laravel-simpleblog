@@ -13,7 +13,8 @@
     @section('content')
         <h3>{{ $article->title }}</h3>
         <div class="text-secondary">
-            {{ $article->category->name }} &middot; {{ $article->created_at->format('d F, Y') }}
+            <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> &middot;
+            {{ $article->created_at->format('d F, Y') }}
         </div>
         <hr>
         <p>{{ $article->body }}</p>
