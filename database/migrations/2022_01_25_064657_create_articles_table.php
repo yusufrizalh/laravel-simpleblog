@@ -10,6 +10,8 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->string('thumbnail')->nullable();
             $table->string('title', 200);
             $table->string('slug', 200);
             $table->text('body');

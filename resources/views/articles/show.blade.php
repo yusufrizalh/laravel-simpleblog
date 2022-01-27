@@ -14,7 +14,7 @@
         <h3>{{ $article->title }}</h3>
         <div class="text-secondary">
             <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> &middot;
-            {{ $article->created_at->format('d F, Y') }}
+            {{ $article->created_at->format('d F, Y') }} &middot; Wrote by: {{ $article->author->name }}
         </div>
         <hr>
         <p>{{ $article->body }}</p>

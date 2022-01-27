@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', 'HomeController@index');
 
 // khusus untuk article
-Route::get('/articles', 'ArticleController@index');
-Route::get('/articles/create', 'ArticleController@create'); // membuka form create
-Route::post('/articles/store', 'ArticleController@store');   // proses menyimpan
-Route::get('/articles/{article:slug}/edit', 'ArticleController@edit');  // membuka form edit
-Route::patch('/articles/{article:slug}/edit', 'ArticleController@update'); // proses mengubah
-Route::delete('/articles/{article:slug}/delete', 'ArticleController@destroy');  // proses menghapus
+Route::prefix('/articles')->middleware('auth')->group(function() {
+    Route::get('/', 'ArticleController@index');
+    Route::get('create', 'ArticleController@create'); // membuka form create
+    Route::post('store', 'ArticleController@store');   // proses menyimpan
+    Route::get('{article:slug}/edit', 'ArticleController@edit');  // membuka form edit
+    Route::patch('{article:slug}/edit', 'ArticleController@update'); // proses mengubah
+    Route::delete('{article:slug}/delete', 'ArticleController@destroy');  // proses menghapus
+});
+
 Route::get('/categories/{category:slug}', 'CategoryController@show');   // memfilter category
 Route::get('/articles/{article:slug}', 'ArticleController@show');   // Route Wildcard
 

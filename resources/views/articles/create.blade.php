@@ -34,6 +34,23 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select name="category" id="category" class="form-control is-invalid">
+                                        <option disabled selected>Choose one category</option>
+                                        @foreach ($categories as $category)
+                                            <option {{ $category->id == $article->category_id ? 'selected' : '' }}
+                                                value="{{ $category->id }}">
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('category')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="body">Body</label>
                                     <textarea name="body" id="body" class="form-control is-invalid"></textarea>
                                     @error('body')
