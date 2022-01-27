@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 // Membuat setiap route yang ada didalam aplikasi
 // Route::view('/', 'welcome');
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 
 // khusus untuk article
 Route::get('/articles', 'ArticleController@index');
@@ -41,3 +41,7 @@ Route::view('series/delete', 'series/delete');
 //     $myName = request('name');
 //     return view('home', ['name' => $myName]);
 // });
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
