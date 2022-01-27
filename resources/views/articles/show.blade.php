@@ -12,6 +12,10 @@
     @section('title', $article->title)
     @section('content')
         <h3>{{ $article->title }}</h3>
+        <div class="text-secondary">
+            {{ $article->category->name }} &middot; {{ $article->created_at->format('d F, Y') }}
+        </div>
+        <hr>
         <p>{{ $article->body }}</p>
 
         <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
